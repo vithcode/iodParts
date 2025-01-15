@@ -1,0 +1,76 @@
+/* assets/styles/login.scss */
+$background-color: #f9f9f9;
+$primary-color: #007bff;
+$primary-color-hover: darken($primary-color, 10%);
+$font-color: #333;
+$border-color: #ddd;
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: $background-color;
+}
+
+.login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+
+    h1 {
+        font-size: 1.8rem;
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: $font-color;
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            color: $font-color;
+            margin-bottom: 0.5rem;
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid $border-color;
+            border-radius: 4px;
+            font-size: 1rem;
+
+            &:focus {
+                border-color: $primary-color;
+                outline: none;
+                box-shadow: 0 0 0 2px rgba($primary-color, 0.2);
+            }
+        }
+    }
+
+    button {
+        width: 100%;
+        padding: 0.8rem;
+        background-color: $primary-color;
+        border: none;
+        border-radius: 4px;
+        font-size: 1rem;
+        color: white;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+            background-color: $primary-color-hover;
+        }
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba($primary-color, 0.25);
+        }
+    }
+}
