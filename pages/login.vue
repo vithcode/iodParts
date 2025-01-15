@@ -37,6 +37,8 @@
 import { ref, computed } from 'vue';
 import { useRouter } from 'vue-router';
 
+const reloadKey = ref(0);
+
 const email = ref('');
 const password = ref('');
 const emailError = ref('');
@@ -81,12 +83,17 @@ const handleLogin = async () => {
     });
     console.log({response})
     localStorage.setItem('token', response.token);
-    router.push('/');
+    router.push('/listing');
   } catch (error) {
     alert('Invalid email or password.');
   }
 };
 
+onMounted(async () => {
+
+  reloadKey.value += 1; // Change the key value to force a re-render
+
+});
 // Import SCSS
 </script>
 
