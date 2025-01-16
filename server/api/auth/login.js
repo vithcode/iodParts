@@ -4,7 +4,7 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
 
   // Mock user validation (replace this with a database check in production)
-  const validUser = body.email === 'test@gmail.com' && body.password === 'Atul@123';
+  const validUser = body.email === 'test@gmail.com' && body.password === 'Vitthal@123';
   if (!validUser) {
     throw createError({
       statusCode: 401,
