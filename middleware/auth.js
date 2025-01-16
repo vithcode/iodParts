@@ -1,9 +1,8 @@
 export default defineNuxtRouteMiddleware((to, from) => {
-  if (process.client) {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      return navigateTo('/login'); // Redirect to login if not authenticated
-    }
+  const authToken = useCookie('jwt-token');
+
+  if (!authToken.value) {
+    // Redirect to login page if the user is not authenticated
+    return navigateTo('/login');
   }
 });
-

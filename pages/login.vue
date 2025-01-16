@@ -1,6 +1,8 @@
 <template>
   <div class="login-container">
     <div class="login-box">
+    <img src="/images/iodparts_logo_text_white.png" alt="iodParts">
+   
       <h1>Login</h1>
       <form @submit.prevent="handleLogin">
         <div class="form-group" :class="{ 'has-error': emailError }">
@@ -82,23 +84,30 @@ const handleLogin = async () => {
       body: { email: email.value, password: password.value },
     });
     console.log({response})
-    localStorage.setItem('token', response.token);
-    router.push('/listing');
+    const userToken = useCookie('jwt-token'); // Create a cookie named 'user-token'
+
+// // Set the cookie value
+userToken.value = response.token;
+
+   
+   await router.push('/listing');
   } catch (error) {
+    console.log("error",error)
     alert('Invalid email or password.');
   }
 };
 
-onMounted(async () => {
 
-  reloadKey.value += 1; // Change the key value to force a re-render
-
-});
 // Import SCSS
 </script>
 
 <style lang="scss" scoped>
 @import "@/assets/styles/login.scss";
+
+img{
+  background-color: #555;
+  background-position: center;
+}
 
 .error-message {
   color: red;
